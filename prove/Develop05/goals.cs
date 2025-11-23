@@ -44,6 +44,25 @@ public abstract class Goals
         Console.WriteLine($"Goal: {goalName} \n Description: {goalDescription} \n Points: {goalPoints}");
     }
 
-    public abstract int RecordEvent();
+    public abstract int RecordEvent(); 
+    public virtual void DisplayCompletion()
+    {
+        if (_isComplete)
+        {
+            Console.WriteLine("[X] " + _goalName);
+        }
+        else
+        {
+            Console.WriteLine("[ ] " + _goalName);
+        }
+    }
+    public string ToCsv()
+    {
+        return $"{_goalName}|{_goalPoints}|{_goalDescription}|{_isComplete}";
+    }
+    public virtual void ResetEvent()
+    {
+        SetCompletion(false);
+    }
 
 }

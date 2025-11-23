@@ -33,4 +33,20 @@ public override int RecordEvent()
     }
     return 0;
 }
+    public override void ResetEvent()
+    {
+        CurrentCount = 0;
+        SetCompletion(false);
+    }
+    public override void DisplayCompletion()
+    {
+        if (GetCompletion())
+        {
+            Console.WriteLine($"[X] {GetGoalName()} -- Currently completed: {CurrentCount}/{TargetCount}");
+        }
+        else
+        {
+            Console.WriteLine($"[ ] {GetGoalName()} -- Currently completed: {CurrentCount}/{TargetCount}");
+        }
+    }
 }

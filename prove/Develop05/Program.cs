@@ -2,8 +2,16 @@ using System;
 
 class Program
 {
-    static void Main(string[] args)
+    
+        public void SaveGoal(Goals goal)
+{
+    string filePath = "goals.csv";
+    using (StreamWriter writer = new StreamWriter(filePath, append: true))
     {
-        Console.WriteLine("Hello Develop05 World!");
+        writer.WriteLine(goal.ToCsv());
     }
 }
+}
+
+ 
+

@@ -19,6 +19,10 @@ public class Simple : Goals
         
         return 0;
     }
-
+    public override void DisplayCompletion()
+    {
+        base.DisplayCompletion();
+    }
+    
    
 }

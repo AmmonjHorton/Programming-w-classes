@@ -12,6 +12,9 @@ public class Eternal : Goals
     {
         return GetGoalPoints();
     }
+    public override void DisplayCompletion()
+    {
+        Console.WriteLine($"[∞] {GetGoalName()} -- Keep it up!");
+    }
 
-   
 }
