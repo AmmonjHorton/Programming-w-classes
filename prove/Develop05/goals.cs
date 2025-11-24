@@ -56,7 +56,7 @@ public abstract class Goals
             Console.WriteLine("[ ] " + _goalName);
         }
     }
-    public string ToCsv()
+    public virtual string ToCsv()
     {
         return $"{_goalName}|{_goalPoints}|{_goalDescription}|{_isComplete}";
     }
@@ -64,5 +64,14 @@ public abstract class Goals
     {
         SetCompletion(false);
     }
+    
+        public void SaveGoal(Goals goal)
+{
+    string filePath = "goals.csv";
+    using (StreamWriter writer = new StreamWriter(filePath, append: true))
+    {
+        writer.WriteLine(goal.ToCsv());
+    }
+}
 
 }

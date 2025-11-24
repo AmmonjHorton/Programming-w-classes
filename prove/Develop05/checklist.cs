@@ -49,4 +49,11 @@ public override int RecordEvent()
             Console.WriteLine($"[ ] {GetGoalName()} -- Currently completed: {CurrentCount}/{TargetCount}");
         }
     }
+    
+    public override string ToCsv()
+{
+    // Type|Name|Points|Description|IsComplete|TargetCount|CurrentCount|BonusPoints
+    return $"{this.GetType().Name}|{GetGoalName()}|{GetGoalPoints()}|{GetGoalDescription()}|{GetCompletion()}|{TargetCount}|{CurrentCount}|{BonusPoints}";
+}
+
 }
