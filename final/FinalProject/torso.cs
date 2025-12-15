@@ -2,8 +2,8 @@ using System;
 
 public class Torso : BodyPart
 {
-    private string _healAmount;
-    public Torso(int healthStat, int attackStat, string specialAbility, string name, string healAmount)
+    private int _healAmount;
+    public Torso(int healthStat, int attackStat, string specialAbility, string name, int healAmount)
         : base(name, healthStat, attackStat, specialAbility)
     {
         _healAmount = healAmount;
