@@ -91,13 +91,16 @@ public static void Fight(Amalgam a, Amalgam b)
             switch (choice)
             {
                 case "1":
-                int partsamount = 0;
-                while (partsamount < 8)
-                {}
+    
                     Console.Write("Name your Amalgam: ");
                     string name = Console.ReadLine();
                     Amalgam player = new Amalgam(name);
                     amalgamons.Add(player);
+
+
+                    int partsamount = 0;
+                    while (partsamount < 8)
+                    {
 
                     Console.WriteLine("Select a body part to add:");
                     Console.WriteLine("1. Hands");
@@ -126,7 +129,7 @@ public static void Fight(Amalgam a, Amalgam b)
 
                             player.AddBodyPart(new Hands(handhealth, handattack, handability, handname));
                             
-                            continue;
+                            break;
 
                         case 2:
                             Console.WriteLine("Adding Tail to your Amalgam.");
@@ -139,7 +142,7 @@ public static void Fight(Amalgam a, Amalgam b)
                             Console.Write("What is the health stat of your Tail? ");
                             int tailHealth = int.Parse(Console.ReadLine());
                             player.AddBodyPart(new Tail(tailHealth, tailAttack, tailAbility, tailName));
-                            continue;
+                            break;
                         case 3:
                             Console.WriteLine("Adding Legs to your Amalgam.");
                             Console.Write("What would you like to name your Legs? ");
@@ -151,7 +154,7 @@ public static void Fight(Amalgam a, Amalgam b)
                             Console.Write("What is the health stat of your Legs? ");
                             int legHealth = int.Parse(Console.ReadLine());
                             player.AddBodyPart(new Legs(legHealth, legAttack, legAbility, legName));
-                            continue;
+                            break;
                         case 4:
                             Console.WriteLine("Adding Torso to your Amalgam.");
                             Console.Write("What would you like to name your Torso? ");
@@ -165,7 +168,7 @@ public static void Fight(Amalgam a, Amalgam b)
                             Console.Write("How much can your Torso heal? ");
                             int healAmount = int.Parse(Console.ReadLine());
                             player.AddBodyPart(new Torso(torsoHealth, torsoAttack, torsoAbility, torsoName, healAmount));
-                            continue;
+                            break;
                         case 5:
                             Console.WriteLine("Adding Arms to your Amalgam.");
                             Console.Write("What would you like to name your Arms? ");
@@ -177,7 +180,7 @@ public static void Fight(Amalgam a, Amalgam b)
                             Console.Write("What is the health stat of your Arms? ");
                             int armHealth = int.Parse(Console.ReadLine());
                             player.AddBodyPart(new Arms(armHealth, armAttack, armAbility, armName));
-                            continue;
+                            break;
                         case 6:
                             Console.WriteLine("Adding Head to your Amalgam.");
                             Console.Write("What would you like to name your Head? ");
@@ -189,7 +192,7 @@ public static void Fight(Amalgam a, Amalgam b)
                             Console.Write("What is the health stat of your Head? ");
                             int headHealth = int.Parse(Console.ReadLine());
                             player.AddBodyPart(new Head(headHealth, headAttack, headAbility, headName));
-                            continue;
+                            break;
                         case 7:
                             Console.WriteLine("Adding Mouth to your Amalgam.");
                             Console.Write("What would you like to name your Mouth? ");
@@ -201,7 +204,7 @@ public static void Fight(Amalgam a, Amalgam b)
                             Console.Write("What is the health stat of your Mouth? ");
                             int mouthHealth = int.Parse(Console.ReadLine());
                             player.AddBodyPart(new Mouth(mouthHealth, mouthAttack, mouthAbility, mouthName));
-                            continue;
+                            break;
                         case 8:
                             Console.WriteLine("Adding Ears to your Amalgam.");
                             Console.Write("What would you like to name your Ears? ");
@@ -213,12 +216,18 @@ public static void Fight(Amalgam a, Amalgam b)
                             Console.Write("What is the health stat of your Ears? ");
                             int earHealth = int.Parse(Console.ReadLine());
                             player.AddBodyPart(new Ears(earHealth, earAttack, earAbility, earName));
-                            continue;
+                            break;
 
                         default:
                             Console.WriteLine("Invalid choice.");
                             continue;
                     }
+                    partsamount++;
+                    Console.WriteLine($"Body parts added: {partsamount}/8\n");
+                }
+                    break;
+            
+                
                     
                     
 
