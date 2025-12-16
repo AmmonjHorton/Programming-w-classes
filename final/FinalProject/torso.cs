@@ -12,4 +12,8 @@ public class Torso : BodyPart
     {
         Console.WriteLine($"Your amalgam uses its {GetName()} to heal for {_healAmount} using {GetSpecialAbility()}!");
     }
+public int GetHealAmount()
+{
+    return _healAmount;
+}
 }

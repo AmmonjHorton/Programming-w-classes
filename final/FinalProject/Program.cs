@@ -4,32 +4,7 @@ using System.Text.Json.Serialization;
 using System.IO;
 class Program
 {
-    public static void SaveAmalgams(List<Amalgam> amalgamons)
-{
-    string json = JsonSerializer.Serialize(amalgamons, new JsonSerializerOptions
-    {
-        WriteIndented = true
-    });
-
-    File.WriteAllText("amalgams.json", json);
-    Console.WriteLine("Saved all Amalgams to amalgams.json!");
-}
-public static List<Amalgam> LoadAmalgams()
-{
-    if (!File.Exists("amalgams.json"))
-    {
-        Console.WriteLine("No save file found.");
-        return new List<Amalgam>();
-    }
-
-    string json = File.ReadAllText("amalgams.json");
-
-    List<Amalgam> loaded =
-        JsonSerializer.Deserialize<List<Amalgam>>(json);
-
-    Console.WriteLine("Amalgams loaded!");
-    return loaded;
-}
+    
 public static void Fight(Amalgam a, Amalgam b)
 {
     Console.WriteLine($"A battle begins between {a.GetName()} and {b.GetName()}!");
@@ -238,10 +213,10 @@ public static void Fight(Amalgam a, Amalgam b)
                     }
                     break;
                 case "3":
-                    SaveAmalgams(amalgamons);
+                    SaveLoadManager.Save("amalgams.json", amalgamons);
                     break;
                 case "4":
-                    amalgamons = LoadAmalgams();
+                    amalgamons = SaveLoadManager.Load("amalgams.json");
                     break;
                 case "5":
     if (amalgamons.Count < 2)
